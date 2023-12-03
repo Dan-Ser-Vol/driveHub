@@ -35,10 +35,12 @@ export class AuthController {
       const result = await this.authService.register(dto);
       return UserResponseMapper.toDetailsDto(result);
     } catch (err) {
+      console.log(err);
       throw new HttpException(err.message, HttpStatus.UNPROCESSABLE_ENTITY);
     }
   }
 
+  @Post('mail')
   @ApiOperation({ summary: 'Login user' })
   @ApiResponse({
     status: 200,

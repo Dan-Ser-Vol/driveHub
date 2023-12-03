@@ -15,17 +15,25 @@ const carPost_module_1 = require("./carPost/carPost.module");
 const files_module_1 = require("./files/files.module");
 const role_module_1 = require("./role/role.module");
 const user_module_1 = require("./user/user.module");
+const mail_module_1 = require("./mail/mail.module");
+const mail_config_module_1 = require("../config/mailConfig/mail-config.module");
+const mailer_1 = require("@nestjs-modules/mailer");
+const config_1 = require("@nestjs/config");
 let AppModule = exports.AppModule = class AppModule {
 };
 exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
         imports: [
             typeorm_1.TypeOrmModule.forRootAsync(type_orm_configuration_1.TypeOrmConfiguration.config),
+            config_1.ConfigModule.forRoot({ isGlobal: true }),
             user_module_1.UserModule,
             auth_module_1.AuthModule,
             role_module_1.RoleModule,
             carPost_module_1.CarPostModule,
             files_module_1.FilesModule,
+            mail_module_1.MailModule,
+            mail_config_module_1.MailConfigModule,
+            mailer_1.MailerModule,
         ],
     })
 ], AppModule);

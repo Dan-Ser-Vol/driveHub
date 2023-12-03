@@ -105,6 +105,7 @@ export class AuthService {
       Logger.error(err);
     }
   }
+
   public async comparePassword(
     newPassword: string,
     oldPassword: string,
