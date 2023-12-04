@@ -10,23 +10,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.sendMailService = void 0;
-const mailer_1 = require("@nestjs-modules/mailer");
 const common_1 = require("@nestjs/common");
+const mailer_1 = require("@nestjs-modules/mailer");
+const mail_constant_1 = require("./constants/mail.constant");
+const mail__action_enum_1 = require("./enum/mail.-action.enum");
 let sendMailService = exports.sendMailService = class sendMailService {
     constructor(mailerService) {
         this.mailerService = mailerService;
     }
-    mail() {
-        this.mailerService
-            .sendMail({
-            to: 'danservoll1984@gmail.com',
-            from: 'noreply@nestjs.com',
-            subject: 'Testing Nest MailerModule ✔',
-            text: 'welcome',
-            html: '<b>welcome</b>',
-        })
-            .then(() => { })
-            .catch(() => { });
+    async mail(email, context) {
+        const { templateName, subject } = mail_constant_1.allTemplates[mail__action_enum_1.EEmailActions.REGISTER];
+        await this.mailerService.sendMail({
+            to: email,
+            subject,
+            template: templateName,
+            context,
+        });
     }
 };
 exports.sendMailService = sendMailService = __decorate([

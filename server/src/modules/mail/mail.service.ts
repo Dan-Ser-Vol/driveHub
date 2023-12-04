@@ -1,20 +1,20 @@
-import { MailerService } from '@nestjs-modules/mailer';
 import { Injectable } from '@nestjs/common';
+import { MailerService } from '@nestjs-modules/mailer';
+
+import { allTemplates } from './constants/mail.constant';
+import { EEmailActions } from './enum/mail.-action.enum';
 
 @Injectable()
 export class sendMailService {
   constructor(private readonly mailerService: MailerService) {}
 
-  public mail(): void {
-    this.mailerService
-      .sendMail({
-        to: 'danservoll1984@gmail.com', // list of receivers
-        from: 'noreply@nestjs.com', // sender address
-        subject: 'Testing Nest MailerModule ✔', // Subject line
-        text: 'welcome', // plaintext body
-        html: '<b>welcome</b>', // HTML body content
-      })
-      .then(() => {})
-      .catch(() => {});
+  public async mail(email, context) {
+    const { templateName, subject } = allTemplates[EEmailActions.REGISTER];
+    await this.mailerService.sendMail({
+      to: email,
+      subject,
+      template: templateName,
+      context,
+    });
   }
 }

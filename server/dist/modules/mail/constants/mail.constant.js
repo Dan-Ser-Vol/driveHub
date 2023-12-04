@@ -5,10 +5,10 @@ const mail__action_enum_1 = require("../enum/mail.-action.enum");
 exports.allTemplates = {
     [mail__action_enum_1.EEmailActions.REGISTER]: {
         templateName: 'register',
-        subject: 'Register into our school ',
+        subject: 'Thank you for registering on our driveHub platform',
     },
     [mail__action_enum_1.EEmailActions.WELCOME]: {
-        templateName: 'register',
+        templateName: 'welcome',
         subject: 'Welcome to our platform driveHub ',
     },
     [mail__action_enum_1.EEmailActions.ACTIVATED]: {

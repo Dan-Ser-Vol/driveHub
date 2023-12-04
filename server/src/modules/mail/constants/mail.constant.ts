@@ -3,10 +3,10 @@ import { EEmailActions } from '../enum/mail.-action.enum';
 export const allTemplates = {
   [EEmailActions.REGISTER]: {
     templateName: 'register',
-    subject: 'Register into our school ',
+    subject: 'Thank you for registering on our driveHub platform',
   },
   [EEmailActions.WELCOME]: {
-    templateName: 'register',
+    templateName: 'welcome',
     subject: 'Welcome to our platform driveHub ',
   },
   [EEmailActions.ACTIVATED]: {

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Реєстрація</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 400px;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #181ba7;
+        }
+
+        th {
+            background-color: silver;
+        }
+
+        .submit-btn {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+<h1>Привіт {{name}}</h1>
+<table>
+    <tr>
+        <th  style="border: none" colspan="2">Реєстрація</th>
+    </tr>
+    <tr>
+        <td>Ім'я:</td>
+        <td>{{name}}</td>
+    </tr>
+    <tr>
+        <td>Email:</td>
+        <td>{{email}}</td>
+    </tr>
+    <tr>
+        <td colspan="2" class="submit-btn"><h3>Дякуємо за реєстрацію</h3></td>
+    </tr>
+</table>
+</body>
+</html>

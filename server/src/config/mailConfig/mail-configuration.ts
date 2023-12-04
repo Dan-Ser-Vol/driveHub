@@ -1,6 +1,8 @@
-import { MailConfigService } from './mail-config.service';
 import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handlebars.adapter';
+import * as path from 'path';
+
 import { MailConfigModule } from './mail-config.module';
+import { MailConfigService } from './mail-config.service';
 
 export class MailConfiguration {
   static get config() {
@@ -12,12 +14,19 @@ export class MailConfiguration {
           from: mailConfigService.from,
           service: mailConfigService.service,
           auth: mailConfigService.auth,
+          secure: true,
         },
         template: {
-          dir: __dirname + '/email-templates',
+          dir: path.resolve('src', 'modules', 'mail', 'templates', 'views'),
           adapter: new HandlebarsAdapter(),
           options: {
-            strict: true,
+            partials: path.resolve(
+              'src',
+              'modules',
+              'mail',
+              'templates',
+              'partials',
+            ),
           },
         },
       }),

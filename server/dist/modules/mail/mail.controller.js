@@ -17,8 +17,13 @@ let MailController = exports.MailController = class MailController {
     constructor(mailerService) {
         this.mailerService = mailerService;
     }
-    mail() {
-        this.mailerService.mail();
+    async mail() {
+        const email = 'danservoll1984@gmail.com';
+        const context = {
+            name: 'Sergiy',
+            actionToken: 'sdsdgsdgrtstgsdgsgr',
+        };
+        await this.mailerService.mail(email, context);
     }
 };
 __decorate([
@@ -26,7 +31,7 @@ __decorate([
     openapi.ApiResponse({ status: 201 }),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], MailController.prototype, "mail", null);
 exports.MailController = MailController = __decorate([
     (0, common_1.Controller)('mail'),
