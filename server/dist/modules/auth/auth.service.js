@@ -20,13 +20,15 @@ const nestjs_redis_1 = require("@webeleon/nestjs-redis");
 const bcrypt = require("bcrypt");
 const typeorm_2 = require("typeorm");
 const user_entity_1 = require("../../database/entities/user.entity");
+const mail_service_1 = require("../mail/mail.service");
 const user_role_enum_1 = require("../role/enum/user-role.enum");
 const role_service_1 = require("../role/role.service");
 const account_type_enum_1 = require("../user/enum/account-type.enum");
 let AuthService = exports.AuthService = class AuthService {
-    constructor(userRepository, roleService, redisClient, jwtService) {
+    constructor(userRepository, roleService, mailService, redisClient, jwtService) {
         this.userRepository = userRepository;
         this.roleService = roleService;
+        this.mailService = mailService;
         this.redisClient = redisClient;
         this.jwtService = jwtService;
     }
@@ -48,6 +50,11 @@ let AuthService = exports.AuthService = class AuthService {
         const token = this.signIn({ email: newUser.email });
         await this.redisClient.setEx(token, 10000, token);
         newUser.token = token;
+        const context = {
+            username: newUser.username,
+            actionToken: token,
+        };
+        await this.mailService.mail(newUser.email, context);
         return await this.userRepository.save(newUser);
     }
     async login(data) {
@@ -97,8 +104,9 @@ let AuthService = exports.AuthService = class AuthService {
 exports.AuthService = AuthService = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, typeorm_1.InjectRepository)(user_entity_1.UserEntity)),
-    __param(2, (0, nestjs_redis_1.InjectRedisClient)()),
+    __param(3, (0, nestjs_redis_1.InjectRedisClient)()),
     __metadata("design:paramtypes", [typeorm_2.Repository,
-        role_service_1.RoleService, Object, jwt_1.JwtService])
+        role_service_1.RoleService,
+        mail_service_1.MailService, Object, jwt_1.JwtService])
 ], AuthService);
 //# sourceMappingURL=auth.service.js.map

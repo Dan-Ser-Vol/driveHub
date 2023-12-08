@@ -21,4 +21,7 @@ export class MailConfigService {
   get auth(): Record<string, string> {
     return this.mailConfiguration.auth;
   }
+  get frontUrl(): string {
+    return this.mailConfiguration.front_url;
+  }
 }

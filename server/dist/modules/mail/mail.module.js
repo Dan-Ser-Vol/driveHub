@@ -9,23 +9,19 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.MailModule = void 0;
 const common_1 = require("@nestjs/common");
 const mailer_1 = require("@nestjs-modules/mailer");
-const mail_controller_1 = require("./mail.controller");
-const mail_service_1 = require("./mail.service");
-const config_1 = require("@nestjs/config");
-const mail_config_module_1 = require("../../config/mailConfig/mail-config.module");
+const app_config_module_1 = require("../../config/appConfig/app-config.module");
 const mail_configuration_1 = require("../../config/mailConfig/mail-configuration");
+const mail_service_1 = require("./mail.service");
 let MailModule = exports.MailModule = class MailModule {
 };
 exports.MailModule = MailModule = __decorate([
     (0, common_1.Module)({
         imports: [
-            config_1.ConfigModule,
-            mail_config_module_1.MailConfigModule,
             mailer_1.MailerModule.forRootAsync(mail_configuration_1.MailConfiguration.config),
+            app_config_module_1.AppConfigModule,
         ],
-        controllers: [mail_controller_1.MailController],
-        providers: [mail_service_1.sendMailService],
-        exports: [mail_service_1.sendMailService],
+        providers: [mail_service_1.MailService],
+        exports: [mail_service_1.MailService],
     })
 ], MailModule);
 //# sourceMappingURL=mail.module.js.map

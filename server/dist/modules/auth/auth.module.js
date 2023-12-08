@@ -12,10 +12,13 @@ const jwt_1 = require("@nestjs/jwt");
 const passport_1 = require("@nestjs/passport");
 const typeorm_1 = require("@nestjs/typeorm");
 const nestjs_redis_1 = require("@webeleon/nestjs-redis");
+const app_config_module_1 = require("../../config/appConfig/app-config.module");
 const config_module_1 = require("../../config/database/config.module");
 const configuration_service_1 = require("../../config/database/configuration.service");
 const role_entity_1 = require("../../database/entities/role.entity");
 const user_entity_1 = require("../../database/entities/user.entity");
+const mail_module_1 = require("../mail/mail.module");
+const mail_service_1 = require("../mail/mail.service");
 const role_module_1 = require("../role/role.module");
 const role_service_1 = require("../role/role.service");
 const auth_controller_1 = require("./auth.controller");
@@ -26,6 +29,7 @@ let AuthModule = exports.AuthModule = class AuthModule {
 exports.AuthModule = AuthModule = __decorate([
     (0, common_1.Module)({
         imports: [
+            app_config_module_1.AppConfigModule,
             nestjs_redis_1.RedisModule,
             passport_1.PassportModule.register({
                 defaultStrategy: 'bearer',
@@ -52,8 +56,9 @@ exports.AuthModule = AuthModule = __decorate([
                 inject: [configuration_service_1.CommonConfigService],
             }),
             role_module_1.RoleModule,
+            mail_module_1.MailModule,
         ],
-        providers: [auth_service_1.AuthService, bearer_strategy_1.BearerStrategy, role_service_1.RoleService],
+        providers: [auth_service_1.AuthService, bearer_strategy_1.BearerStrategy, role_service_1.RoleService, mail_service_1.MailService],
         controllers: [auth_controller_1.AuthController],
         exports: [auth_service_1.AuthService, passport_1.PassportModule],
     })

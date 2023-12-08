@@ -8,4 +8,5 @@ export default registerAs('mail', () => ({
     user: process.env.NO_REPLAY_EMAIL,
     pass: process.env.NO_REPLAY_PASSWORD,
   },
+  front_url: process.env.FRONT_URL,
 }));

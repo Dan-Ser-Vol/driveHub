@@ -1,6 +1,8 @@
 import { MailerService } from '@nestjs-modules/mailer';
-export declare class sendMailService {
+import { AppConfigService } from '../../config/appConfig/app-config.service';
+export declare class MailService {
     private readonly mailerService;
-    constructor(mailerService: MailerService);
+    private readonly appConfig;
+    constructor(mailerService: MailerService, appConfig: AppConfigService);
     mail(email: any, context: any): Promise<void>;
 }

@@ -40,7 +40,7 @@ export class AuthController {
     }
   }
 
-  @Post('mail')
+
   @ApiOperation({ summary: 'Login user' })
   @ApiResponse({
     status: 200,

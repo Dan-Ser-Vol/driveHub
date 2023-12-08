@@ -1,19 +1,16 @@
 import { Module } from '@nestjs/common';
 import { MailerModule } from '@nestjs-modules/mailer';
-import { MailController } from './mail.controller';
-import { sendMailService } from './mail.service';
-import { ConfigModule } from '@nestjs/config';
-import { MailConfigModule } from '../../config/mailConfig/mail-config.module';
+
+import { AppConfigModule } from '../../config/appConfig/app-config.module';
 import { MailConfiguration } from '../../config/mailConfig/mail-configuration';
+import { MailService } from './mail.service';
 
 @Module({
   imports: [
-    ConfigModule,
-    MailConfigModule,
     MailerModule.forRootAsync(MailConfiguration.config),
+    AppConfigModule,
   ],
-  controllers: [MailController],
-  providers: [sendMailService],
-  exports: [sendMailService],
+  providers: [MailService],
+  exports: [MailService],
 })
 export class MailModule {}

@@ -4,10 +4,13 @@ import { PassportModule } from '@nestjs/passport';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { RedisModule } from '@webeleon/nestjs-redis';
 
+import { AppConfigModule } from '../../config/appConfig/app-config.module';
 import { CommonConfigModule } from '../../config/database/config.module';
 import { CommonConfigService } from '../../config/database/configuration.service';
 import { RoleEntity } from '../../database/entities/role.entity';
 import { UserEntity } from '../../database/entities/user.entity';
+import { MailModule } from '../mail/mail.module';
+import { MailService } from '../mail/mail.service';
 import { RoleModule } from '../role/role.module';
 import { RoleService } from '../role/role.service';
 import { AuthController } from './auth.controller';
@@ -16,6 +19,7 @@ import { BearerStrategy } from './bearer.strategy';
 
 @Module({
   imports: [
+    AppConfigModule,
     RedisModule,
     PassportModule.register({
       defaultStrategy: 'bearer',
@@ -42,8 +46,9 @@ import { BearerStrategy } from './bearer.strategy';
       inject: [CommonConfigService],
     }),
     RoleModule,
+    MailModule,
   ],
-  providers: [AuthService, BearerStrategy, RoleService],
+  providers: [AuthService, BearerStrategy, RoleService, MailService],
   controllers: [AuthController],
   exports: [AuthService, PassportModule],
 })

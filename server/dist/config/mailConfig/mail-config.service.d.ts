@@ -6,4 +6,5 @@ export declare class MailConfigService {
     get from(): string;
     get service(): string;
     get auth(): Record<string, string>;
+    get frontUrl(): string;
 }

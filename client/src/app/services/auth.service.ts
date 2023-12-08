@@ -70,6 +70,9 @@ export class AuthService {
         }),
         catchError((err) => {
           this.handeError(err);
+          if(err.status === 401) {
+            void this.router.navigate(['/login']);
+          }
           throw new Error(err.message);
         })
       )
@@ -77,7 +80,7 @@ export class AuthService {
   }
 
   private handeError(err: HttpErrorResponse) {
-    console.log(err);
-    this.toastrService.error(err.message);
+    console.log('console',err.error.message);
+    this.toastrService.error(err.error.message);
   }
 }

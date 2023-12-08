@@ -5,6 +5,7 @@ declare const _default: (() => {
         user: string;
         pass: string;
     };
+    front_url: string;
 }) & import("@nestjs/config").ConfigFactoryKeyHost<{
     from: string;
     service: string;
@@ -12,5 +13,6 @@ declare const _default: (() => {
         user: string;
         pass: string;
     };
+    front_url: string;
 }>;
 export default _default;

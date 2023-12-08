@@ -9,17 +9,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.sendMailService = void 0;
+exports.MailService = void 0;
 const common_1 = require("@nestjs/common");
 const mailer_1 = require("@nestjs-modules/mailer");
+const app_config_service_1 = require("../../config/appConfig/app-config.service");
 const mail_constant_1 = require("./constants/mail.constant");
 const mail__action_enum_1 = require("./enum/mail.-action.enum");
-let sendMailService = exports.sendMailService = class sendMailService {
-    constructor(mailerService) {
+let MailService = exports.MailService = class MailService {
+    constructor(mailerService, appConfig) {
         this.mailerService = mailerService;
+        this.appConfig = appConfig;
     }
     async mail(email, context) {
         const { templateName, subject } = mail_constant_1.allTemplates[mail__action_enum_1.EEmailActions.REGISTER];
+        context.frontUrl = this.appConfig.frontUrl;
         await this.mailerService.sendMail({
             to: email,
             subject,
@@ -28,8 +31,9 @@ let sendMailService = exports.sendMailService = class sendMailService {
         });
     }
 };
-exports.sendMailService = sendMailService = __decorate([
+exports.MailService = MailService = __decorate([
     (0, common_1.Injectable)(),
-    __metadata("design:paramtypes", [mailer_1.MailerService])
-], sendMailService);
+    __metadata("design:paramtypes", [mailer_1.MailerService,
+        app_config_service_1.AppConfigService])
+], MailService);
 //# sourceMappingURL=mail.service.js.map

@@ -28,6 +28,9 @@ let MailConfigService = exports.MailConfigService = class MailConfigService {
     get auth() {
         return this.mailConfiguration.auth;
     }
+    get frontUrl() {
+        return this.mailConfiguration.front_url;
+    }
 };
 exports.MailConfigService = MailConfigService = __decorate([
     (0, common_1.Injectable)(),

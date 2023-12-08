@@ -13,6 +13,7 @@ import { Repository } from 'typeorm';
 
 import { IToken } from '../../common/interface/token.interface';
 import { UserEntity } from '../../database/entities/user.entity';
+import { MailService } from '../mail/mail.service';
 import { UserRoleEnum } from '../role/enum/user-role.enum';
 import { RoleService } from '../role/role.service';
 import { AccountTypeEnum } from '../user/enum/account-type.enum';
@@ -25,6 +26,7 @@ export class AuthService {
     @InjectRepository(UserEntity)
     private readonly userRepository: Repository<UserEntity>,
     private readonly roleService: RoleService,
+    private readonly mailService: MailService,
     @InjectRedisClient()
     private readonly redisClient: RedisClient,
     private readonly jwtService: JwtService,
@@ -51,6 +53,11 @@ export class AuthService {
     const token = this.signIn({ email: newUser.email });
     await this.redisClient.setEx(token, 10000, token);
     newUser.token = token;
+    const context = {
+      username: newUser.username,
+      actionToken: token,
+    };
+    await this.mailService.mail(newUser.email, context);
     return await this.userRepository.save(newUser);
   }
 
