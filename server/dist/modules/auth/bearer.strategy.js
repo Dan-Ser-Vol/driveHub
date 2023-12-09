@@ -19,7 +19,7 @@ const passport_http_bearer_1 = require("passport-http-bearer");
 const nestjs_redis_1 = require("@webeleon/nestjs-redis");
 const jwt_1 = require("@nestjs/jwt");
 const auth_service_1 = require("./auth.service");
-let BearerStrategy = exports.BearerStrategy = class BearerStrategy extends (0, passport_1.PassportStrategy)(passport_http_bearer_1.Strategy, 'bearer') {
+let BearerStrategy = class BearerStrategy extends (0, passport_1.PassportStrategy)(passport_http_bearer_1.Strategy, 'bearer') {
     constructor(redisClient, jwtService, authService) {
         super();
         this.redisClient = redisClient;
@@ -43,6 +43,7 @@ let BearerStrategy = exports.BearerStrategy = class BearerStrategy extends (0, p
         return user;
     }
 };
+exports.BearerStrategy = BearerStrategy;
 exports.BearerStrategy = BearerStrategy = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, nestjs_redis_1.InjectRedisClient)()),

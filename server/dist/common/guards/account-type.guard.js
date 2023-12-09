@@ -13,7 +13,7 @@ exports.AccountTypeGuard = void 0;
 const common_1 = require("@nestjs/common");
 const core_1 = require("@nestjs/core");
 const account_type_decorator_1 = require("../decorators/account-type.decorator");
-let AccountTypeGuard = exports.AccountTypeGuard = class AccountTypeGuard {
+let AccountTypeGuard = class AccountTypeGuard {
     constructor(reflector) {
         this.reflector = reflector;
     }
@@ -33,6 +33,7 @@ let AccountTypeGuard = exports.AccountTypeGuard = class AccountTypeGuard {
         return true;
     }
 };
+exports.AccountTypeGuard = AccountTypeGuard;
 exports.AccountTypeGuard = AccountTypeGuard = __decorate([
     (0, common_1.Injectable)(),
     __metadata("design:paramtypes", [core_1.Reflector])

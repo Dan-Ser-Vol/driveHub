@@ -14,11 +14,12 @@ const openapi = require("@nestjs/swagger");
 const typeorm_1 = require("typeorm");
 const swagger_1 = require("@nestjs/swagger");
 const user_entity_1 = require("./user.entity");
-let RoleEntity = exports.RoleEntity = class RoleEntity {
+let RoleEntity = class RoleEntity {
     static _OPENAPI_METADATA_FACTORY() {
         return { id: { required: true, type: () => String }, value: { required: true, type: () => String }, description: { required: true, type: () => String }, users: { required: true, type: () => [require("./user.entity").UserEntity] } };
     }
 };
+exports.RoleEntity = RoleEntity;
 __decorate([
     (0, typeorm_1.PrimaryGeneratedColumn)(),
     __metadata("design:type", String)

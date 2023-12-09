@@ -20,11 +20,12 @@ const currensy_enum_1 = require("../../modules/carPost/enum/currensy.enum");
 const status_enum_1 = require("../../modules/carPost/enum/status.enum");
 const create_update_entity_1 = require("./common/create.update.entity");
 const user_entity_1 = require("./user.entity");
-let CarPostEntity = exports.CarPostEntity = class CarPostEntity extends create_update_entity_1.CreateUpdateModel {
+let CarPostEntity = class CarPostEntity extends create_update_entity_1.CreateUpdateModel {
     static _OPENAPI_METADATA_FACTORY() {
         return { id: { required: true, type: () => String }, brand: { required: true, enum: require("../../modules/carPost/enum/car-brands.enum").CarBrandsEnum }, model: { required: true, type: () => String }, year: { required: true, type: () => Number }, image: { required: true, type: () => [String] }, mileage: { required: true, type: () => Number, minimum: 0 }, bodyType: { required: true, enum: require("../../modules/carPost/enum/body-type.enum").BodyTypeEnum }, status: { required: true, enum: require("../../modules/carPost/enum/status.enum").StatusCarEnum }, price: { required: true, type: () => Number }, currency: { required: true, enum: require("../../modules/carPost/enum/currensy.enum").CurrencyEnum }, sold: { required: true, type: () => Boolean }, region: { required: true, type: () => String }, description: { required: true, type: () => String }, createdAt: { required: true, type: () => Date }, updatedAt: { required: true, type: () => Date }, user: { required: true, type: () => require("./user.entity").UserEntity } };
     }
 };
+exports.CarPostEntity = CarPostEntity;
 __decorate([
     (0, typeorm_1.PrimaryGeneratedColumn)(),
     (0, swagger_1.ApiProperty)({ example: 1, description: 'The unique identifier of the car' }),

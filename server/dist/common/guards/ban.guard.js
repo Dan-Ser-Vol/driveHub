@@ -13,7 +13,7 @@ exports.BanUserGuard = void 0;
 const common_1 = require("@nestjs/common");
 const core_1 = require("@nestjs/core");
 const ban_decorator_1 = require("../decorators/ban.decorator");
-let BanUserGuard = exports.BanUserGuard = class BanUserGuard {
+let BanUserGuard = class BanUserGuard {
     constructor(reflector) {
         this.reflector = reflector;
     }
@@ -33,6 +33,7 @@ let BanUserGuard = exports.BanUserGuard = class BanUserGuard {
         return true;
     }
 };
+exports.BanUserGuard = BanUserGuard;
 exports.BanUserGuard = BanUserGuard = __decorate([
     (0, common_1.Injectable)(),
     __metadata("design:paramtypes", [core_1.Reflector])

@@ -12,8 +12,9 @@ const mailer_1 = require("@nestjs-modules/mailer");
 const app_config_module_1 = require("../../config/appConfig/app-config.module");
 const mail_configuration_1 = require("../../config/mailConfig/mail-configuration");
 const mail_service_1 = require("./mail.service");
-let MailModule = exports.MailModule = class MailModule {
+let MailModule = class MailModule {
 };
+exports.MailModule = MailModule;
 exports.MailModule = MailModule = __decorate([
     (0, common_1.Module)({
         imports: [

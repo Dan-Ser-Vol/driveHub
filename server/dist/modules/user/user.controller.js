@@ -27,7 +27,7 @@ const user_list_response_dto_1 = require("./dto/response/user.list-response.dto"
 const user_update_response_dto_1 = require("./dto/response/user.update-response.dto");
 const user_response_mapper_1 = require("./user.response.mapper");
 const user_service_1 = require("./user.service");
-let UserController = exports.UserController = class UserController {
+let UserController = class UserController {
     constructor(userService) {
         this.userService = userService;
     }
@@ -71,6 +71,7 @@ let UserController = exports.UserController = class UserController {
         }
     }
 };
+exports.UserController = UserController;
 __decorate([
     (0, role_decorator_1.RolesDecorator)(user_role_enum_1.UserRoleEnum.MANAGER, user_role_enum_1.UserRoleEnum.ADMIN, user_role_enum_1.UserRoleEnum.BUYER, user_role_enum_1.UserRoleEnum.SELLER),
     (0, swagger_1.ApiOperation)({ summary: 'Get all users' }),

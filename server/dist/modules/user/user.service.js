@@ -13,7 +13,7 @@ exports.UserService = void 0;
 const common_1 = require("@nestjs/common");
 const ban_status_enum_1 = require("./enum/ban-status.enum");
 const user_repository_1 = require("./user.repository");
-let UserService = exports.UserService = class UserService {
+let UserService = class UserService {
     constructor(userRepository) {
         this.userRepository = userRepository;
     }
@@ -62,6 +62,7 @@ let UserService = exports.UserService = class UserService {
         return findUser;
     }
 };
+exports.UserService = UserService;
 exports.UserService = UserService = __decorate([
     (0, common_1.Injectable)(),
     __metadata("design:paramtypes", [user_repository_1.UserRepository])

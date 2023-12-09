@@ -14,7 +14,7 @@ const common_1 = require("@nestjs/common");
 const typeorm_1 = require("typeorm");
 const user_entity_1 = require("../../database/entities/user.entity");
 const user_list_order_field_enum_1 = require("./enum/user-list-order-field.enum");
-let UserRepository = exports.UserRepository = class UserRepository extends typeorm_1.Repository {
+let UserRepository = class UserRepository extends typeorm_1.Repository {
     constructor(dataSource) {
         super(user_entity_1.UserEntity, dataSource.manager);
         this.dataSource = dataSource;
@@ -40,6 +40,7 @@ let UserRepository = exports.UserRepository = class UserRepository extends typeo
         return { entities, total };
     }
 };
+exports.UserRepository = UserRepository;
 exports.UserRepository = UserRepository = __decorate([
     (0, common_1.Injectable)(),
     __metadata("design:paramtypes", [typeorm_1.DataSource])

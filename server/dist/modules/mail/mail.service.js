@@ -15,7 +15,7 @@ const mailer_1 = require("@nestjs-modules/mailer");
 const app_config_service_1 = require("../../config/appConfig/app-config.service");
 const mail_constant_1 = require("./constants/mail.constant");
 const mail__action_enum_1 = require("./enum/mail.-action.enum");
-let MailService = exports.MailService = class MailService {
+let MailService = class MailService {
     constructor(mailerService, appConfig) {
         this.mailerService = mailerService;
         this.appConfig = appConfig;
@@ -31,6 +31,7 @@ let MailService = exports.MailService = class MailService {
         });
     }
 };
+exports.MailService = MailService;
 exports.MailService = MailService = __decorate([
     (0, common_1.Injectable)(),
     __metadata("design:paramtypes", [mailer_1.MailerService,

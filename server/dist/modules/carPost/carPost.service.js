@@ -16,7 +16,7 @@ const path = require("path");
 const files_service_1 = require("../files/files.service");
 const user_repository_1 = require("../user/user.repository");
 const carPost_repository_1 = require("./carPost.repository");
-let CarPostService = exports.CarPostService = class CarPostService {
+let CarPostService = class CarPostService {
     constructor(carPostRepository, userRepository, filesService) {
         this.carPostRepository = carPostRepository;
         this.userRepository = userRepository;
@@ -102,6 +102,7 @@ let CarPostService = exports.CarPostService = class CarPostService {
         return car;
     }
 };
+exports.CarPostService = CarPostService;
 exports.CarPostService = CarPostService = __decorate([
     (0, common_1.Injectable)(),
     __metadata("design:paramtypes", [carPost_repository_1.CarPostRepository,

@@ -18,11 +18,12 @@ const ban_status_enum_1 = require("../../modules/user/enum/ban-status.enum");
 const carPost_entity_1 = require("./carPost.entity");
 const create_update_entity_1 = require("./common/create.update.entity");
 const role_entity_1 = require("./role.entity");
-let UserEntity = exports.UserEntity = class UserEntity extends create_update_entity_1.CreateUpdateModel {
+let UserEntity = class UserEntity extends create_update_entity_1.CreateUpdateModel {
     static _OPENAPI_METADATA_FACTORY() {
         return { id: { required: true, type: () => String }, username: { required: true, type: () => String }, email: { required: true, type: () => String }, phone: { required: true, type: () => String }, password: { required: true, type: () => String }, accountType: { required: true, type: () => String, enum: require("../../modules/user/enum/account-type.enum").AccountTypeEnum.BASIC }, banned: { required: true, enum: require("../../modules/user/enum/ban-status.enum").BanStatusEnum }, token: { required: false, type: () => String }, posts: { required: true, type: () => [require("./carPost.entity").CarPostEntity] }, roles: { required: true, type: () => [require("./role.entity").RoleEntity] } };
     }
 };
+exports.UserEntity = UserEntity;
 __decorate([
     (0, typeorm_1.PrimaryGeneratedColumn)('increment'),
     __metadata("design:type", String)

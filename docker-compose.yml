@@ -1,0 +1,41 @@
+version: "3.9"
+
+services:
+  web:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./client/dist/client:/usr/share/nginx/html
+    restart: on-failure
+
+
+  app:
+    build:
+      context: .
+    volumes:
+      - ./server:/app
+      - /app/node_modules
+    ports:
+      - "3000:3000"
+    restart: on-failure
+    command: sh -c "npm run start:dev"
+
+
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: "driveHub"
+      POSTGRES_USER: "user"
+      POSTGRES_PASSWORD: "user"
+
+    volumes:
+      - ./pg_data:/var/lib/postgresql/data
+    ports:
+      - "5431:5432"
+    restart: on-failure
+
+  redis:
+    image: redis:latest
+    restart: on-failure

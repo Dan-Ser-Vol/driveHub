@@ -19,8 +19,9 @@ const user_module_1 = require("../user/user.module");
 const user_service_1 = require("../user/user.service");
 const role_controller_1 = require("./role.controller");
 const role_service_1 = require("./role.service");
-let RoleModule = exports.RoleModule = class RoleModule {
+let RoleModule = class RoleModule {
 };
+exports.RoleModule = RoleModule;
 exports.RoleModule = RoleModule = __decorate([
     (0, common_1.Module)({
         imports: [

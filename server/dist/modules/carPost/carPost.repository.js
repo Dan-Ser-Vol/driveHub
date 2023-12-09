@@ -14,7 +14,7 @@ const common_1 = require("@nestjs/common");
 const typeorm_1 = require("typeorm");
 const carPost_entity_1 = require("../../database/entities/carPost.entity");
 const post_list_order_field_enum_1 = require("./enum/post-list-order-field.enum");
-let CarPostRepository = exports.CarPostRepository = class CarPostRepository extends typeorm_1.Repository {
+let CarPostRepository = class CarPostRepository extends typeorm_1.Repository {
     constructor(dataSource) {
         super(carPost_entity_1.CarPostEntity, dataSource.manager);
         this.dataSource = dataSource;
@@ -42,6 +42,7 @@ let CarPostRepository = exports.CarPostRepository = class CarPostRepository exte
         return { entities, total };
     }
 };
+exports.CarPostRepository = CarPostRepository;
 exports.CarPostRepository = CarPostRepository = __decorate([
     (0, common_1.Injectable)(),
     __metadata("design:paramtypes", [typeorm_1.DataSource])

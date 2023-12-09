@@ -9,7 +9,7 @@ exports.default = (0, config_1.registerAs)('postgresql', () => ({
     user: process.env.POSTGRES_USER,
     password: process.env.POSTGRES_PASSWORD,
     database: process.env.POSTGRES_DATABASE,
-    redis_url: process.env.REDIS_URl,
+    redis_url: process.env.REDIS_URL,
     jwt_secret: process.env.JWT_SECRET,
     jwt_expires_in: process.env.JWT_EXPIRES_IN,
 }));

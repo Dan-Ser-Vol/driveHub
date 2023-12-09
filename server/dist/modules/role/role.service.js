@@ -18,7 +18,7 @@ const typeorm_1 = require("@nestjs/typeorm");
 const typeorm_2 = require("typeorm");
 const role_entity_1 = require("../../database/entities/role.entity");
 const user_entity_1 = require("../../database/entities/user.entity");
-let RoleService = exports.RoleService = class RoleService {
+let RoleService = class RoleService {
     constructor(roleRepository, userRepository) {
         this.roleRepository = roleRepository;
         this.userRepository = userRepository;
@@ -64,6 +64,7 @@ let RoleService = exports.RoleService = class RoleService {
         await this.roleRepository.remove(role);
     }
 };
+exports.RoleService = RoleService;
 exports.RoleService = RoleService = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, typeorm_1.InjectRepository)(role_entity_1.RoleEntity)),

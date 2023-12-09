@@ -24,7 +24,7 @@ const mail_service_1 = require("../mail/mail.service");
 const user_role_enum_1 = require("../role/enum/user-role.enum");
 const role_service_1 = require("../role/role.service");
 const account_type_enum_1 = require("../user/enum/account-type.enum");
-let AuthService = exports.AuthService = class AuthService {
+let AuthService = class AuthService {
     constructor(userRepository, roleService, mailService, redisClient, jwtService) {
         this.userRepository = userRepository;
         this.roleService = roleService;
@@ -101,6 +101,7 @@ let AuthService = exports.AuthService = class AuthService {
         return await bcrypt.compare(newPassword, oldPassword);
     }
 };
+exports.AuthService = AuthService;
 exports.AuthService = AuthService = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, typeorm_1.InjectRepository)(user_entity_1.UserEntity)),

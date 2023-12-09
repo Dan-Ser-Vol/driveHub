@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.LogoutGuard = void 0;
 const common_1 = require("@nestjs/common");
 const nestjs_redis_1 = require("@webeleon/nestjs-redis");
-let LogoutGuard = exports.LogoutGuard = class LogoutGuard {
+let LogoutGuard = class LogoutGuard {
     constructor(redisClient) {
         this.redisClient = redisClient;
     }
@@ -37,6 +37,7 @@ let LogoutGuard = exports.LogoutGuard = class LogoutGuard {
         return false;
     }
 };
+exports.LogoutGuard = LogoutGuard;
 exports.LogoutGuard = LogoutGuard = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, nestjs_redis_1.InjectRedisClient)()),

@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CommonConfigService = void 0;
 const common_1 = require("@nestjs/common");
 const configuration_1 = require("./configuration");
-let CommonConfigService = exports.CommonConfigService = class CommonConfigService {
+let CommonConfigService = class CommonConfigService {
     constructor(postgresqlConfiguration) {
         this.postgresqlConfiguration = postgresqlConfiguration;
     }
@@ -47,6 +47,7 @@ let CommonConfigService = exports.CommonConfigService = class CommonConfigServic
         return this.postgresqlConfiguration.jwt_expires_in;
     }
 };
+exports.CommonConfigService = CommonConfigService;
 exports.CommonConfigService = CommonConfigService = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, common_1.Inject)(configuration_1.default.KEY)),

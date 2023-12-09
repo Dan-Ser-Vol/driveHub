@@ -11,7 +11,7 @@ const common_1 = require("@nestjs/common");
 const class_transformer_1 = require("class-transformer");
 const class_validator_1 = require("class-validator");
 const validation_exception_1 = require("../exceptions/validation.exception");
-let ValidationPipe = exports.ValidationPipe = class ValidationPipe {
+let ValidationPipe = class ValidationPipe {
     async transform(value, metadata) {
         const obj = (0, class_transformer_1.plainToInstance)(metadata.metatype, value);
         const errors = await (0, class_validator_1.validate)(obj);
@@ -24,6 +24,7 @@ let ValidationPipe = exports.ValidationPipe = class ValidationPipe {
         return value;
     }
 };
+exports.ValidationPipe = ValidationPipe;
 exports.ValidationPipe = ValidationPipe = __decorate([
     (0, common_1.Injectable)()
 ], ValidationPipe);

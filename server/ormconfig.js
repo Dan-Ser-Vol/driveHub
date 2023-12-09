@@ -4,8 +4,8 @@ const typeorm = require('typeorm');
 const dataSource = new typeorm.DataSource({
   name: 'default',
   type: 'postgres',
-  host: '0.0.0.0',
-  port: '5431',
+  host: 'db',
+  port: '5432',
   username: 'user',
   password: 'user',
   database: 'driveHub',

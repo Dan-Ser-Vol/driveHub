@@ -14,8 +14,9 @@ const user_entity_1 = require("../../database/entities/user.entity");
 const user_controller_1 = require("./user.controller");
 const user_repository_1 = require("./user.repository");
 const user_service_1 = require("./user.service");
-let UserModule = exports.UserModule = class UserModule {
+let UserModule = class UserModule {
 };
+exports.UserModule = UserModule;
 exports.UserModule = UserModule = __decorate([
     (0, common_1.Module)({
         imports: [

@@ -24,7 +24,7 @@ const role_value_dto_1 = require("./dto/request/role-value.dto");
 const role_response_dto_1 = require("./dto/response/role-response.dto");
 const user_role_enum_1 = require("./enum/user-role.enum");
 const role_service_1 = require("./role.service");
-let RoleController = exports.RoleController = class RoleController {
+let RoleController = class RoleController {
     constructor(roleService) {
         this.roleService = roleService;
     }
@@ -48,6 +48,7 @@ let RoleController = exports.RoleController = class RoleController {
         }
     }
 };
+exports.RoleController = RoleController;
 __decorate([
     (0, swagger_1.ApiOperation)({ summary: 'Create new role' }),
     (0, swagger_1.ApiResponse)({

@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.MailConfigService = void 0;
 const configuration_1 = require("./configuration");
 const common_1 = require("@nestjs/common");
-let MailConfigService = exports.MailConfigService = class MailConfigService {
+let MailConfigService = class MailConfigService {
     constructor(mailConfiguration) {
         this.mailConfiguration = mailConfiguration;
     }
@@ -32,6 +32,7 @@ let MailConfigService = exports.MailConfigService = class MailConfigService {
         return this.mailConfiguration.front_url;
     }
 };
+exports.MailConfigService = MailConfigService;
 exports.MailConfigService = MailConfigService = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, common_1.Inject)(configuration_1.default.KEY)),

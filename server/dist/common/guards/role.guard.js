@@ -13,7 +13,7 @@ exports.RolesGuard = void 0;
 const common_1 = require("@nestjs/common");
 const core_1 = require("@nestjs/core");
 const role_decorator_1 = require("../decorators/role.decorator");
-let RolesGuard = exports.RolesGuard = class RolesGuard {
+let RolesGuard = class RolesGuard {
     constructor(reflector) {
         this.reflector = reflector;
     }
@@ -33,6 +33,7 @@ let RolesGuard = exports.RolesGuard = class RolesGuard {
         return true;
     }
 };
+exports.RolesGuard = RolesGuard;
 exports.RolesGuard = RolesGuard = __decorate([
     (0, common_1.Injectable)(),
     __metadata("design:paramtypes", [core_1.Reflector])

@@ -23,7 +23,7 @@ const auth_service_1 = require("./auth.service");
 const user_login_request_dto_1 = require("./dto/request/user.login-request.dto");
 const user_register_request_dto_1 = require("./dto/request/user.register-request.dto");
 const user_register_response_dto_1 = require("./dto/response/user.register-response.dto");
-let AuthController = exports.AuthController = class AuthController {
+let AuthController = class AuthController {
     constructor(authService) {
         this.authService = authService;
     }
@@ -44,6 +44,7 @@ let AuthController = exports.AuthController = class AuthController {
         return;
     }
 };
+exports.AuthController = AuthController;
 __decorate([
     (0, swagger_1.ApiOperation)({ summary: 'Register new user' }),
     (0, swagger_1.ApiResponse)({

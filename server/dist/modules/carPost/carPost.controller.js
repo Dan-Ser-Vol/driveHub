@@ -31,7 +31,7 @@ const carPost_update_dto_1 = require("./dto/request/carPost-update.dto");
 const image_dto_1 = require("./dto/request/image.dto");
 const post_list_query_request_dto_1 = require("./dto/request/post-list-query.request.dto");
 const carPost_details_response_dto_1 = require("./dto/response/carPost-details-response.dto");
-let CarPostController = exports.CarPostController = class CarPostController {
+let CarPostController = class CarPostController {
     constructor(carPostService) {
         this.carPostService = carPostService;
     }
@@ -106,6 +106,7 @@ let CarPostController = exports.CarPostController = class CarPostController {
         }
     }
 };
+exports.CarPostController = CarPostController;
 __decorate([
     (0, role_decorator_1.RolesDecorator)(user_role_enum_1.UserRoleEnum.SELLER, user_role_enum_1.UserRoleEnum.ADMIN, user_role_enum_1.UserRoleEnum.MANAGER),
     (0, swagger_1.ApiOperation)({ summary: 'Create new post' }),

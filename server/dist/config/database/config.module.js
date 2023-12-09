@@ -12,8 +12,9 @@ const config_1 = require("@nestjs/config");
 const configuration_1 = require("./configuration");
 const configuration_service_1 = require("./configuration.service");
 const process = require("process");
-let CommonConfigModule = exports.CommonConfigModule = class CommonConfigModule {
+let CommonConfigModule = class CommonConfigModule {
 };
+exports.CommonConfigModule = CommonConfigModule;
 exports.CommonConfigModule = CommonConfigModule = __decorate([
     (0, common_1.Module)({
         imports: [

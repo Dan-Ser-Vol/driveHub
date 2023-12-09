@@ -12,8 +12,9 @@ const config_1 = require("@nestjs/config");
 const configuration_1 = require("./configuration");
 const process = require("process");
 const mail_config_service_1 = require("./mail-config.service");
-let MailConfigModule = exports.MailConfigModule = class MailConfigModule {
+let MailConfigModule = class MailConfigModule {
 };
+exports.MailConfigModule = MailConfigModule;
 exports.MailConfigModule = MailConfigModule = __decorate([
     (0, common_1.Module)({
         imports: [

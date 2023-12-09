@@ -11,7 +11,7 @@ const common_1 = require("@nestjs/common");
 const fs = require("fs");
 const path = require("path");
 const uuid = require("uuid");
-let FilesService = exports.FilesService = class FilesService {
+let FilesService = class FilesService {
     async createFile(file) {
         try {
             const fileName = uuid.v4() + '.jpg';
@@ -27,6 +27,7 @@ let FilesService = exports.FilesService = class FilesService {
         }
     }
 };
+exports.FilesService = FilesService;
 exports.FilesService = FilesService = __decorate([
     (0, common_1.Injectable)()
 ], FilesService);

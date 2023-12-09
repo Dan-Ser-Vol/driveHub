@@ -18,8 +18,9 @@ const user_module_1 = require("../user/user.module");
 const carPost_controller_1 = require("./carPost.controller");
 const carPost_repository_1 = require("./carPost.repository");
 const carPost_service_1 = require("./carPost.service");
-let CarPostModule = exports.CarPostModule = class CarPostModule {
+let CarPostModule = class CarPostModule {
 };
+exports.CarPostModule = CarPostModule;
 exports.CarPostModule = CarPostModule = __decorate([
     (0, common_1.Module)({
         imports: [

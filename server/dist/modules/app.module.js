@@ -20,8 +20,9 @@ const files_module_1 = require("./files/files.module");
 const mail_module_1 = require("./mail/mail.module");
 const role_module_1 = require("./role/role.module");
 const user_module_1 = require("./user/user.module");
-let AppModule = exports.AppModule = class AppModule {
+let AppModule = class AppModule {
 };
+exports.AppModule = AppModule;
 exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
         imports: [
