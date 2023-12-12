@@ -1,1 +1,23 @@
-<p>posts-list works!</p>
+<div class="py-4 shadow rounded grid">
+  <div>
+    <!--    Form-->
+    <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
+      <input class="input w-full"
+             type="text" placeholder="Search..." formControlName="title" required>
+      <button class="btn btn-green w-full flex mt-2" type="submit" >Search</button>
+    </form>
+    <!--    Post list-->
+    <div class="flex flex-wrap items-center gap-2 mb-5">
+      <!--Post item-->
+      <div class="flex py-2 px-8 bg-blue-600 text-xs text-white mt-2 relative">
+        <p>title</p>
+        <button class="absolute left-2">
+          <fa-icon [icon]="removeIcon"></fa-icon>
+        </button>
+        <button class="absolute right-2">
+          <fa-icon [icon]="editIcon"></fa-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

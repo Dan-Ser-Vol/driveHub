@@ -1,7 +1,7 @@
 import { MigrationInterface, QueryRunner } from "typeorm";
 
-export class  $npmConfigName1701175202092 implements MigrationInterface {
-    name = ' $npmConfigName1701175202092'
+export class  $npmConfigName1702394005040 implements MigrationInterface {
+    name = ' $npmConfigName1702394005040'
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.query(`CREATE TABLE "role_entity" ("id" SERIAL NOT NULL, "value" character varying NOT NULL, "description" character varying NOT NULL, CONSTRAINT "UQ_5383b4b5d6d709d2b8ee7b6e048" UNIQUE ("value"), CONSTRAINT "PK_7bc1bd2364b6e9bf7c84b1e52e2" PRIMARY KEY ("id"))`);

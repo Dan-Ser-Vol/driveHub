@@ -9,6 +9,7 @@ import { AuthService } from '../../services/auth.service';
 })
 export class HeaderComponent {
   constructor(public authService: AuthService) {}
+  isAuth = this.authService.isAuthSig()
   logoutIcon = faArrowRightFromBracket;
 
   logout() {

@@ -107,7 +107,6 @@ let CarPostController = exports.CarPostController = class CarPostController {
     }
 };
 __decorate([
-    (0, role_decorator_1.RolesDecorator)(user_role_enum_1.UserRoleEnum.SELLER, user_role_enum_1.UserRoleEnum.ADMIN, user_role_enum_1.UserRoleEnum.MANAGER),
     (0, swagger_1.ApiOperation)({ summary: 'Create new post' }),
     (0, swagger_1.ApiResponse)({
         status: 200,
@@ -123,7 +122,6 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], CarPostController.prototype, "createCar", null);
 __decorate([
-    (0, role_decorator_1.RolesDecorator)(user_role_enum_1.UserRoleEnum.BUYER, user_role_enum_1.UserRoleEnum.SELLER, user_role_enum_1.UserRoleEnum.ADMIN, user_role_enum_1.UserRoleEnum.MANAGER),
     (0, swagger_1.ApiOperation)({ summary: 'Get all posts' }),
     (0, swagger_1.ApiResponse)({
         status: 200,

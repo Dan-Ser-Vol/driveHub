@@ -3,6 +3,7 @@ import {
   HttpInterceptor,
   HttpRequest,
 } from '@angular/common/http';
+import {catchError, throwError} from "rxjs";
 
 export class AuthInterceptor implements HttpInterceptor {
   constructor() {}
@@ -17,6 +18,11 @@ export class AuthInterceptor implements HttpInterceptor {
         url: `${req.url}`,
       });
     }
-    return next.handle(req);
+    return next.handle(req).pipe(
+      catchError((error) => {
+        return throwError(error);
+      })
+    );
+
   }
 }

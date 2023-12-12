@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.$npmConfigName1701175202092 = void 0;
-class $npmConfigName1701175202092 {
+exports.$npmConfigName1702394005040 = void 0;
+class $npmConfigName1702394005040 {
     constructor() {
-        this.name = ' $npmConfigName1701175202092';
+        this.name = ' $npmConfigName1702394005040';
     }
     async up(queryRunner) {
         await queryRunner.query(`CREATE TABLE "role_entity" ("id" SERIAL NOT NULL, "value" character varying NOT NULL, "description" character varying NOT NULL, CONSTRAINT "UQ_5383b4b5d6d709d2b8ee7b6e048" UNIQUE ("value"), CONSTRAINT "PK_7bc1bd2364b6e9bf7c84b1e52e2" PRIMARY KEY ("id"))`);
@@ -38,5 +38,5 @@ class $npmConfigName1701175202092 {
         await queryRunner.query(`DROP TABLE "role_entity"`);
     }
 }
-exports.$npmConfigName1701175202092 = $npmConfigName1701175202092;
-//# sourceMappingURL=1701175202092-$npm_config_name.js.map
+exports.$npmConfigName1702394005040 = $npmConfigName1702394005040;
+//# sourceMappingURL=1702394005040-$npm_config_name.js.map
