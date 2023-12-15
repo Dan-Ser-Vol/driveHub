@@ -1,5 +1,4 @@
-import {Component, OnInit} from '@angular/core';
-import {faRemove, faEdit} from "@fortawesome/free-solid-svg-icons";
+import {Component, OnInit, signal} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {PostService} from "../../../services/post.service";
 import {IPost} from "../../../interfaces";
@@ -9,10 +8,10 @@ import {IPost} from "../../../interfaces";
   selector: 'app-posts-list',
   templateUrl: './posts-list.component.html',
 })
-export class PostsListComponent implements OnInit{
-  removeIcon = faRemove
-  editIcon = faEdit
+export class PostsListComponent implements OnInit {
   postForm: FormGroup
+  posts: IPost[]
+
 
   constructor(
     public postService: PostService
@@ -21,12 +20,13 @@ export class PostsListComponent implements OnInit{
       title: new FormControl('', [Validators.required])
     })
   }
-  ngOnInit():void {
-    this.postService.getAll()
+
+  async ngOnInit() {
+    await this.postService.getAll().subscribe(value => this.posts = value.data);
   }
 
-  onSubmit () {
-    if(this.postForm.valid){
+  onSubmit() {
+    if (this.postForm.valid) {
       this.postService.create(this.postForm.value);
       this.postForm.reset()
     }

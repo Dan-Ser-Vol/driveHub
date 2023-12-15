@@ -1,10 +1,14 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {IPost} from "../../../interfaces";
+import {faEdit, faRemove} from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: 'app-posts-item',
   templateUrl: './posts-item.component.html',
-  styleUrls: ['./posts-item.component.scss']
 })
 export class PostsItemComponent {
-
+  removeIcon = faRemove
+  editIcon = faEdit
+  @Input()
+  post: IPost
 }

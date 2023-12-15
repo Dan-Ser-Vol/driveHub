@@ -1,1 +1,71 @@
-<p>post-form works!</p>
+<form [formGroup]="form" (ngSubmit)="save()"
+      class="flex flex-col w-1/3 mx-auto mt-20 p-4 rounded border border-slate-600 gap-5">
+  <h1 class="text-blue-400">Create your post</h1>
+
+  <div class=" flex flex-col">
+    <label for="brand" class="text-slate-400 text-sm">Brand:</label>
+    <input
+      class="input"
+      type="text"
+      placeholder="Brand"
+      id="brand"
+      formControlName="brand"
+    >
+  </div>
+  <div
+    class="text-red-500 text-xs mt-1"
+    *ngIf="form.controls['brand'].invalid && (form.controls['brand'].touched || form.controls['brand'].dirty )"
+  >
+    <div *ngIf="form.controls['brand'].hasError('required')">
+      Brand is required
+    </div>
+  </div>
+
+  <div class=" flex flex-col">
+    <label for="model" class="text-slate-400 text-sm">Model:</label>
+    <input   class="input" type="text" id="model" formControlName="model">
+  </div>
+
+  <div class=" flex flex-col">
+    <label for="year" class="text-slate-400 text-sm">Year:</label>
+    <input   class="input" type="number" id="year" formControlName="year">
+  </div>
+
+  <div class=" flex flex-col">
+    <label for="bodyType" class="text-slate-400 text-sm">Body Type:</label>
+    <input   class="input" type="text" id="bodyType" formControlName="bodyType">
+  </div>
+
+  <div class=" flex flex-col">
+    <label for="currency" class="text-slate-400 text-sm">Currency:</label>
+    <input   class="input" type="text" id="currency" formControlName="currency">
+  </div>
+
+  <div class=" flex flex-col">
+    <label for="description" class="text-slate-400 text-sm">Description:</label>
+    <input   class="input" type="text" id="description" formControlName="description">
+  </div>
+
+  <div class=" flex flex-col">
+    <label for="mileage" class="text-slate-400 text-sm">Mileage:</label>
+    <input   class="input" type="number" id="mileage" formControlName="mileage">
+  </div>
+
+  <div class=" flex flex-col">
+    <label for="price" class="text-slate-400 text-sm">Price:</label>
+    <input   class="input" type="number" id="price" formControlName="price">
+  </div>
+
+  <div class=" flex flex-col">
+    <label for="region" class="text-slate-400 text-sm">Region:</label>
+    <input   class="input" type="text" id="region" formControlName="region">
+  </div>
+
+  <div class=" flex flex-col">
+    <label for="status" class="text-slate-400 text-sm">Status:</label>
+    <input   class="input" type="text" id="status" formControlName="status">
+  </div>
+
+  <button class="btn btn-green" [disabled]="form.invalid">save</button>
+</form>
+

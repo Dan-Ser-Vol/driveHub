@@ -1,30 +1,32 @@
-import {Injectable, signal} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {ToastrService} from 'ngx-toastr';
-import {IPost} from '../interfaces';
+import {IPost, IPostRes} from '../interfaces';
 import {urls} from '../constants/urls';
+import {Observable} from "rxjs";
+
 
 @Injectable({
   providedIn: 'root',
 })
 export class PostService {
-  postsSig = signal<IPost[]>([]);
 
   constructor(
-    private readonly httpClient: HttpClient,
-    private readonly toastrService: ToastrService
+    private readonly http: HttpClient,
   ) {
   }
 
-  getAll() {
-    return  this.httpClient.get<IPost[]>(urls.posts.getAll).subscribe((posts) => {
-      this.postsSig.set(posts)
-      this.toastrService.success('All posts is got')
-    })
+  getAll():Observable<IPostRes> {
+    return  this.http.get<IPostRes>(urls.posts.getAll)
   }
   create (data: IPost) {
-    return this.httpClient.post<IPost>(urls.posts.create, data).subscribe((newPost) => {
-      this.postsSig.update(posts => [...posts, newPost])
-    })
+    return this.http.post<IPost>(urls.posts.create, data)
+  }
+
+  updateById (id: number, data: IPost):Observable<IPost> {
+    return this.http.put<IPost>(urls.posts.updateById(id), {data})
+  }
+
+  deleteById (id: number):Observable<void> {
+    return this.http.delete<void>(urls.posts.deleteById(id))
   }
 }

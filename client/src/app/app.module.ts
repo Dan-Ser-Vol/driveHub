@@ -17,6 +17,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { HeaderComponent } from './components/header/header.component';
 import { AuthInterceptor } from '../common/interceptors/auth-interceptor';
+import {CommonModule} from "@angular/common";
+import {CreatePostComponent} from "./pages/createPost/createPost.component";
 
 @NgModule({
   declarations: [
@@ -29,8 +31,10 @@ import { AuthInterceptor } from '../common/interceptors/auth-interceptor';
     PostsItemComponent,
     HomeComponent,
     ProfileComponent,
+    CreatePostComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
