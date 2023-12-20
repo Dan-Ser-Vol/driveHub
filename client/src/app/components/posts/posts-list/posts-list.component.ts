@@ -21,8 +21,10 @@ export class PostsListComponent implements OnInit {
     })
   }
 
-  async ngOnInit() {
-    await this.postService.getAll().subscribe(value => this.posts = value.data);
+   ngOnInit() {
+    this.postService.getTriggerStatus().subscribe(()=>{
+      this.postService.getAll().subscribe(value => this.posts = value.data);
+    })
   }
 
   onSubmit() {

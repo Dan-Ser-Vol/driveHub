@@ -177,7 +177,7 @@ export class CarPostController {
     }
   }
 
-  @RolesDecorator(UserRoleEnum.SELLER, UserRoleEnum.ADMIN)
+  // @RolesDecorator(UserRoleEnum.SELLER, UserRoleEnum.ADMIN)
   @ApiOperation({ summary: 'Update car post by id' })
   @ApiResponse({
     status: 200,
@@ -190,6 +190,7 @@ export class CarPostController {
     @Body() body: CarPostUpdateDto,
   ): Promise<CarPostDetailsResponseDto> {
     try {
+      console.log(body);
       const result = await this.carPostService.updateCarPost(postId, body);
       return CarPostResponseMapper.toDetailsDto(result);
     } catch (err) {
@@ -197,7 +198,7 @@ export class CarPostController {
     }
   }
 
-  @RolesDecorator(UserRoleEnum.SELLER, UserRoleEnum.ADMIN)
+  // @RolesDecorator(UserRoleEnum.SELLER, UserRoleEnum.ADMIN)
   @ApiOperation({ summary: 'Delete car post by id' })
   @ApiResponse({
     status: 200,

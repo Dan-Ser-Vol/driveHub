@@ -1,11 +1,26 @@
 <div
-  class="flex py-2 px-8 bg-blue-600 text-xs text-white mt-2 relative">
-  <p>{{post.brand}}</p>
-  <button class="absolute left-2">
-    <fa-icon [icon]="removeIcon"></fa-icon>
-  </button>
-  <button class="absolute right-2">
-    <fa-icon [icon]="editIcon"></fa-icon>
-  </button>
+  class="flex flex-col py-2 px-8 bg-slate-700  shadow rounded text-xs text-white mt-2 w-full">
+  <p class="text-xs">{{post.brand}}</p>
+  <p class="text-xs">{{post.brand}}</p>
+  <p class="text-xs">{{post.brand}}</p>
+  <p class="text-xs">{{post.brand}}</p>
+  <p class="text-xs">{{post.brand}}</p>
+  <p class="text-xs">{{post.brand}}</p>
+  <p class="text-xs">{{post.brand}}</p>
+  <p class="text-xs">{{post.brand}}</p>
+  <p class="text-xs">{{post.brand}}</p>
+  <p class="text-xs">{{post.brand}}</p>
+  <p class="text-xs">{{post.brand}}</p>
+  <p class="text-xs">{{post.brand}}</p>
+
+  <div class="flex justify-evenly">
+    <button class="btn btn-red font-medium"(click)="delete()">
+      delete<fa-icon  class="ml-2" [icon]="removeIcon"></fa-icon>
+    </button>
+    <button class="btn btn-green font-medium " (click)="update()">
+      update<fa-icon class="ml-2" [icon]="editIcon"></fa-icon>
+    </button>
+  </div>
 </div>
+
 

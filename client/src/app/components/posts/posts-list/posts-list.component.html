@@ -1,19 +1,16 @@
 <div class="py-4 shadow rounded grid">
-  <div>
-    <!--    Form-->
-    <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
-      <input class="input w-full"
-             type="text" placeholder="Search..." formControlName="title" required>
-      <button class="btn btn-green w-full flex mt-2" type="submit">Search</button>
-    </form>
-    <!--    Post list-->
-    <div
-      class="flex flex-wrap items-center gap-2 mb-5">
-      <!--Post item-->
-      <app-posts-item
-        *ngFor="let post of posts"
-        [post]="post"
-      />
-    </div>
+  <!--    Form-->
+  <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
+    <input class="input w-full"
+           type="text" placeholder="Search..." formControlName="title" required>
+    <button class="btn btn-green w-full flex mt-2" type="submit">Search</button>
+  </form>
+  <div
+    class="flex flex-col mb-5 w-full">
+    <!--Post item-->
+    <app-posts-item
+      *ngFor="let post of posts"
+      [post]="post"
+    />
   </div>
 </div>

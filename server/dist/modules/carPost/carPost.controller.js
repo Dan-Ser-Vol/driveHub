@@ -90,6 +90,7 @@ let CarPostController = exports.CarPostController = class CarPostController {
     }
     async updateCarPost(postId, body) {
         try {
+            console.log(body);
             const result = await this.carPostService.updateCarPost(postId, body);
             return carPost_response_mapper_1.CarPostResponseMapper.toDetailsDto(result);
         }
@@ -200,7 +201,6 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], CarPostController.prototype, "getPostByUserId", null);
 __decorate([
-    (0, role_decorator_1.RolesDecorator)(user_role_enum_1.UserRoleEnum.SELLER, user_role_enum_1.UserRoleEnum.ADMIN),
     (0, swagger_1.ApiOperation)({ summary: 'Update car post by id' }),
     (0, swagger_1.ApiResponse)({
         status: 200,
@@ -216,7 +216,6 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], CarPostController.prototype, "updateCarPost", null);
 __decorate([
-    (0, role_decorator_1.RolesDecorator)(user_role_enum_1.UserRoleEnum.SELLER, user_role_enum_1.UserRoleEnum.ADMIN),
     (0, swagger_1.ApiOperation)({ summary: 'Delete car post by id' }),
     (0, swagger_1.ApiResponse)({
         status: 200,
